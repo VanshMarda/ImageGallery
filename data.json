@@ -1,0 +1,27 @@
+[
+  {
+    "text": "Photo of a brown jelly fish in blue water.",
+    "image": "./images/jellyFish.avif",
+    "alt": "jellyfish"
+  },
+  {
+    "text": "Palm tree under a blue sky",
+    "image": "./images/tree.avif",
+    "alt": "palm tree"
+  },
+  {
+    "text": "Waterfall in Orlando",
+    "image": "./images/bridge.avif",
+    "alt": "waterfall"
+  },
+  {
+    "text": "Snow covered pine trees during winter in Romania.",
+    "image": "./images/snow.avif",
+    "alt": "snow trees"
+  },
+  {
+    "text": "A blue and brown kingfisher pictured in Ontario, Canada",
+    "image": "./images/bird.avif",
+    "alt": "kingfisher"
+  }
+]
