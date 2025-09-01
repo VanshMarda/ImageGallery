@@ -2,6 +2,9 @@ let currentListElement = null; // store reference to clicked <li>
 let currentDataElement = null; // store reference to clicked data object
 
 
+/*
+function for changing the image based on the selected element in the list
+*/
 async function handleImageChange(element,newList){
     console.log("hello")
   document.querySelectorAll(".image-list li").forEach(li => {
@@ -26,7 +29,9 @@ async function handleImageChange(element,newList){
 
 }
 
-
+/*
+function for editing the text of the image on clicking the text
+*/
 function setupEditableBinding() {
   const displayText = document.querySelector(".display-text");
   displayText.addEventListener("input", () => {

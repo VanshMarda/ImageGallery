@@ -1,5 +1,9 @@
 import {handleImageChange,setupEditableBinding} from './loadImage.js'
+import{setupDragAndDrop} from './dragAndDrop.js'
 
+/*
+function for loading the list elements and calling handleImageChange and setupEditableBinding 
+*/
 async function loadData() {
     try {
         const response = await fetch("data.json")
@@ -13,7 +17,7 @@ async function loadData() {
 
             const newList = document.createElement("li")
             newList.className = "flex items-center gap-2 cursor-pointer hover:bg-gray-200 p-2 rounded"
-
+            newList.draggable=true
             const newImage = document.createElement("img")
             newImage.src = element.image
             newImage.alt = element.alt
@@ -33,6 +37,7 @@ async function loadData() {
             
             setupEditableBinding()
         });
+        setupDragAndDrop(".image-list");
     }
     catch(error) {
         console.log("Json error :" , error)
