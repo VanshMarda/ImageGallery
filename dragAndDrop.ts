@@ -3,16 +3,18 @@ Handles drag-and-drop reordering of list items
 */
 
 function setupDragAndDrop(listSelector = ".image-list") {
-  const list = document.querySelector(listSelector);
+  const list = document.querySelector<HTMLUListElement>(listSelector);
   if (!list) return;
 
-  let draggedEl = null;
+  let draggedEl:HTMLLIElement| null = null;
 
-  list.querySelectorAll("li").forEach((li) => {
+  list.querySelectorAll<HTMLLIElement>("li").forEach((li) => {
 
-    li.addEventListener("dragstart", (e) => {
+    li.addEventListener("dragstart", (e:DragEvent) => {
       draggedEl = li;
-      e.dataTransfer.effectAllowed = "move";
+      if (e.dataTransfer) {
+        e.dataTransfer.effectAllowed = "move";
+      }
       li.classList.add("opacity-50");
     });
 
@@ -21,7 +23,7 @@ function setupDragAndDrop(listSelector = ".image-list") {
       li.classList.remove("opacity-50");
     });
 
-    li.addEventListener("dragover", (e) => {
+    li.addEventListener("dragover", (e:DragEvent) => {
       e.preventDefault();
       li.classList.add("border-t-2", "border-blue-400");
     });
@@ -30,7 +32,7 @@ function setupDragAndDrop(listSelector = ".image-list") {
       li.classList.remove("border-t-2", "border-blue-400");
     });
 
-    li.addEventListener("drop", (e) => {
+    li.addEventListener("drop", (e:DragEvent) => {
       e.preventDefault();
       li.classList.remove("border-t-2", "border-blue-400");
       if (draggedEl && draggedEl !== li) {
